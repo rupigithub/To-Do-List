@@ -1,0 +1,191 @@
+:root{
+    --grey700:#0D0D0D;
+    --grey500:#2b2828;
+    --grey300:#3a3737;
+    --blue:#4eb2f5;
+    --purple:#2f32d1;
+    --offwhite:rgb(121, 112, 112);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    /* background-color: aqua; */
+}
+header{
+    width: 100vw;
+    height: 200px;
+    background-color: var(--grey700);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100px;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    background-image: linear-gradient(to right, var(--blue), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.todo>i{
+margin-top: 10px;
+margin-right: 10px;
+}
+body{
+    background-color: var(--grey500);
+}
+.input-task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 736px; */
+    /* height: 54px;
+    top: 173px; */
+    /* left: 352px; */
+    gap: 8px;
+    
+}
+.form{
+    width: 736px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: -20px;
+    background-color: var(--grey300);
+}
+#input-form #input-text{
+    border: none;
+    background-color: transparent;
+    color:var(--offwhite);
+    width: 450px;
+}
+#input-form #input-date{
+    background-color: transparent;
+    color:var(--offwhite); 
+    border: none;
+    display: none;
+}
+#input-form #high-priority{
+    background-color: transparent;
+    color:var(--offwhite); 
+    border: none;
+    display: none;
+}
+.action{
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: -20px;
+    background-color: var(--purple);
+}
+.action>button{
+    background-color: transparent;
+    border: none;
+}
+.todo-and-high-priority-updates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 650px;
+   margin: 10px;
+   padding: 10px;
+
+}
+.todo-and-high-priority-updates h6{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    background-image: linear-gradient(to right, var(--blue), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+    
+.todo-and-high-priority-updates>div>h6>.no{
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.adding-list{
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+   gap:8px;
+}
+.input-list{
+display: flex;
+background-color: var(--grey300);
+width: 815px;
+padding: 10px;
+border-radius: 5px;
+}
+
+.input-created-form .created-text{
+    border: none;
+    background-color: transparent;
+    color:var(--offwhite);
+    width: 570px;
+}
+.input-created-form .input-created-date{
+    background-color: transparent;
+    color:var(--offwhite); 
+    border: none;
+}
+.edit{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 10px;
+}
+.edit>i{
+    color: var(--offwhite);
+}
+.delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:10px;
+}
+.delete>i{
+    color: var(--offwhite);
+}
+.started{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+.started > div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 670px;
+}
+.started > div h6{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    background-image: linear-gradient(to right, var(--blue), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.completed > div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 650px;
+}
