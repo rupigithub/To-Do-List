@@ -118,10 +118,12 @@ body{
 }
     
 .todo-and-high-priority-updates div h6 span input{
-    background-color: var(--offwhite);
+    background-color: transparent;
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    text-align: center;
+    color: var(--offwhite);
 }
 
 .adding-list{
@@ -167,6 +169,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-right: 10px;
+cursor: pointer;
 }
 .edit>i{
     color: var(--offwhite);
@@ -176,6 +179,7 @@ margin-right: 10px;
     justify-content: center;
     align-items: center;
     margin-left:10px;
+    cursor: pointer;
 }
 .delete>i{
     color: var(--offwhite);

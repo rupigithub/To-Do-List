@@ -49,9 +49,12 @@ function giveInputs(){
             newText.type = "text";
             let localTask = text.value;
             let localdate = date.value;
-            newText.value = localTask + "       " + "due date is:" + " " + localdate;
+            let localPriority = priority.value;
+            newText.value = localTask + "       " + "due date is:" + " " + localdate +"      " + "priority: " + localPriority;
             newText.setAttribute("readonly", "readonly");
             newForm.appendChild(newText);
+
+            list.sort((list.newList.newForm.newText.localPriority))
 
             let editAction = document.createElement("div");
             editAction.classList.add("edit");
