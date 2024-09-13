@@ -51,6 +51,7 @@ body{
     top: 173px; */
     /* left: 352px; */
     gap: 8px;
+    margin-bottom: 15px;
     
 }
 .form{
@@ -133,30 +134,38 @@ body{
    flex-wrap: wrap;
    gap:8px;
 }
-/* .adding-list>div{
+.adding-list>div{
     width: 800px;
-    height: 100px;
-    background-color: var(--offwhite);
-    color: var(--grey300);
+    height: 80px;
+    background-color: var(--grey300);
+    /* color: var(--offwhite); */
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
     border-radius: 5px;
-} */
+}
 .input-list{
 display: flex;
-background-color: var(--grey300);
+/* background-color: var(--grey300); */
 width: 815px;
 padding: 10px;
 border-radius: 5px;
+}
+
+.input-created-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .input-created-form .created-text{
     border: none;
     background-color: transparent;
     color:var(--offwhite);
-    width: 730px;
+    font-size: 15px;
+    width: 600px;
     margin-right: 5px;
 }
 .input-created-form .input-created-date{
@@ -172,6 +181,7 @@ margin-right: 10px;
 cursor: pointer;
 }
 .edit>i{
+    background-color: transparent;
     color: var(--offwhite);
 }
 .delete{
@@ -182,6 +192,7 @@ cursor: pointer;
     cursor: pointer;
 }
 .delete>i{
+    background-color: transparent;
     color: var(--offwhite);
 }
 .started{

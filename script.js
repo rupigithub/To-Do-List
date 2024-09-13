@@ -17,6 +17,8 @@ function giveInputs(){
     priority.style.visibility = "visible";
     }
 
+    let taskArray = [];
+
     function addLists(e){
         e.preventDefault();
         if(text.value === "" || date.value ==="" || priority.value ===""){
@@ -34,79 +36,82 @@ function giveInputs(){
             // let data = {task: text.value, dueDate: date.value, taskpriority: priority.value};
 
             // text.focus();
-            let newList = document.createElement("div");
-            newList.classList.add("input-list");
+            let task = {
+                task: text.value,
+                dueDate: date.value,
+                priority: priority.value
+            };
+            taskArray.push(task);
+            console.log(taskArray)
+    
+            // Sort the array by priority (assuming priority is numeric or can be compared)
+            taskArray.sort((a, b) => b.priority - a.priority);
+            
+    
+            // Clear the list before re-rendering
+            list.innerHTML = "";
 
-            list.appendChild(newList);
-
-            let newForm = document.createElement("form");
-            newForm.classList.add("input-created-form");
-
-            newList.appendChild(newForm);
-
-            let newText = document.createElement("input");
-            newText.classList.add("created-text");
-            newText.type = "text";
-            let localTask = text.value;
-            let localdate = date.value;
-            let localPriority = priority.value;
-            newText.value = localTask + "       " + "due date is:" + " " + localdate +"      " + "priority: " + localPriority;
-            newText.setAttribute("readonly", "readonly");
-            newForm.appendChild(newText);
-
-            list.sort((list.newList.newForm.newText.localPriority))
-
-            let editAction = document.createElement("div");
-            editAction.classList.add("edit");
-
-            let editIcon = document.createElement("i");
-            editIcon.classList.add("fa-solid", "fa-pen");
-
-            editAction.appendChild(editIcon);
-            newList.appendChild(editAction);
-
-            let deleteAction = document.createElement("div");
-            deleteAction.classList.add("delete");
-
-            let deleteIcon = document.createElement("i");
-            deleteIcon.classList.add("fa-regular", "fa-trash-can");
-
-            deleteAction.appendChild(deleteIcon);
-            newList.appendChild(deleteAction);
-
+            // Re-render the sorted task list
+            taskArray.forEach((taskItem) => {
+                let newList = document.createElement("div");
+                newList.classList.add("input-list");
+    
+                let newForm = document.createElement("form");
+                newForm.classList.add("input-created-form");
+    
+                newList.appendChild(newForm);
+    
+                let newText = document.createElement("input");
+                newText.classList.add("created-text");
+                newText.type = "text";
+                newText.value = `${taskItem.task}           due date is: ${taskItem.dueDate}            priority: ${taskItem.priority}`;
+                newText.setAttribute("readonly", "readonly");
+                newForm.appendChild(newText);
+    
+                let editAction = document.createElement("div");
+                editAction.classList.add("edit");
+    
+                let editIcon = document.createElement("i");
+                editIcon.classList.add("fa-solid", "fa-pen");
+    
+                editAction.appendChild(editIcon);
+                newList.appendChild(editAction);
+    
+                let deleteAction = document.createElement("div");
+                deleteAction.classList.add("delete");
+    
+                let deleteIcon = document.createElement("i");
+                deleteIcon.classList.add("fa-regular", "fa-trash-can");
+    
+                deleteAction.appendChild(deleteIcon);
+                newList.appendChild(deleteAction);
+    
+                list.appendChild(newList);
+    
+                // Event listeners for edit and delete buttons
+                editIcon.addEventListener("click", () => {
+                    if (editIcon.innerText !== "save") {
+                        newText.removeAttribute("readonly");
+                        newText.focus();
+                        editIcon.innerText = "save";
+                    } else {
+                        newText.setAttribute("readonly", "readonly");
+                        editIcon.innerText = "";
+                    }
+                });
+    
+                deleteIcon.addEventListener("click", () => {
+                    newList.remove();
+                    taskArray = taskArray.filter(item => item !== taskItem);
+                });
+            });
+    
+            // Clear input fields after adding
             text.value = "";
             date.value = "";
             priority.value = "";
             date.style.visibility = "hidden";
             priority.style.visibility = "hidden";
-
-            let totalList = parseInt(totalTodoList.value);
-            totalTodoList.innerText = totalList++;
-
-            editIcon.addEventListener("click", () =>{
-                let parentList = editIcon.parentElement.parentElement;
-                if(editIcon.innerText != "save"){
-                    newText.removeAttribute("readonly");
-                    newText.focus();
-                    editIcon.classList.remove("fa-solid", "fa-pen");
-                    editIcon.innerText = "save";
-                }
-                else{
-                    newText.setAttribute("readonly", "readonly");
-                    editIcon.innerText ="";
-                    editIcon.classList.add("fa-solid", "fa-pen");
-                }
-            });
-
-            deleteIcon.addEventListener("click", () =>{
-                newList.remove();
-                let totalList = parseInt(totalTodoList.value);
-            totalTodoList.innerText = totalList++;
-            })
-
-            // let newDate = document.createElement("input");
-            // newDate.classList.add("input-created-date");
-            // newDate.type = "text";
         }
     }
 
